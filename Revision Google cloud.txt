@@ -26,6 +26,8 @@ kubectl  exec -it [nombre del pod] sh -> abrir una consola
 kubectl <METHOD> <RESOURCE> <NAME_OF_RESURCE>
 eval $(minikube docker-env) -> Entrar a docker de minikube
 
+docker-compose up -d -> Sirve para levantar una imagen de docker
+
 docker build -t [nombre de la image] [path del docker file] -> Contruir un dockerfile
 docker exec -it [nombre contenedor] sh -> abrir consola shell
 docker images -> lista las imagenes
