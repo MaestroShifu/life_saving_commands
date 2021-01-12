@@ -1,0 +1,64 @@
+CI/CD con GKE y cloud build: 
+-> https://medium.com/platformer-blog/ci-cd-with-gke-and-google-cloud-build-98a797ecf346
+CD GKE:
+-> https://github.com/GoogleCloudPlatform/continuous-deployment-on-kubernetes
+
+
+gcloud init -> autenticacion contra google
+gcloud config list -> El proyecto donde esta parado
+gcloud projects list -> Lista los proyectos asociados a la cuenta
+gcloud config set project [idProject] -> Cambias de proyecto
+gcloud builds submit <Ruta de un cloudbuild.yml / dockerfile.yml> -> Construye una imagen de docker gcr
+gcloud container clusters get-credentials [name cluster] --zone=[zoa del cluster]
+
+kubectl get pods --all-namespaces -> Lista todos los pods y de donde lo llamas
+kubectl get pods -n=[Nombre del namespace] -> Lista los pods de un namsespace especifico
+kubectl  get ns -> Lista los namespaces
+kubectl [metodo: get | describe | delete] [recurso: pod | service | pvc | pv] -n=[namespace]
+kubectl apply -f [path archivo] -> montar archivo
+kubectl delete ns [nombre del recurso] -> borra cualquier recurso 
+kubectl scale [recurso] [nombre del recurso] [--replicas=] -> Sirve para cambiar las replicas del pod
+kubectl port-forward [servicio]/[nombre del servicio] [puerto a exponer]:[puertoel servicio] -> TENEMOS QUE AVERIGUAR
+kubectl logs -f [nombre del servicio] -> ver logs
+kubectl  exec -it [nombre del pod] sh -> abrir una consola
+
+
+kubectl <METHOD> <RESOURCE> <NAME_OF_RESURCE>
+eval $(minikube docker-env) -> Entrar a docker de minikube
+
+docker build -t [nombre de la image] [path del docker file] -> Contruir un dockerfile
+docker exec -it [nombre contenedor] sh -> abrir consola shell
+docker images -> lista las imagenes
+
+Method
+get = traer recurso
+delete = eliminar recurso
+describe = describir recurso
+
+------------------------------------------------------------
+apply (aplicar un archivo de configuracion)
+kubectl <METHOD> <OPTIONS>
+oPTIONS
+-F = DAR LA RUTA DEL ARCHIVO QUE QUIERE APLICAR
+
+
+**********tools************
+kns -> Sirve para fijar un namespace para trabajar
+https://github.com/blendle/kns
+kubeselect -> Lista cluster
+https://github.com/fatliverfreddy/kubeselect
+minikube -> Sirve para cacharrear el kube
+
+
+**************************
+GCR -> google container registry
+GCE -> google container engine
+
+helm -> Manageer de paquetes kubernetes
+cert-manager -> Certificados y esas cosas
+rcac -> Roles
+cainjector controller -> Para el manejo del ssh
+
+Ingress 
+-> nginx
+-> Traefik
